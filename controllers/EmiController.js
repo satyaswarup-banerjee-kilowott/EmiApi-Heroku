@@ -3,9 +3,9 @@
 const e = require("express");
 
 exports.getMonthlyEmi = (req,res,next) =>{
-    const principal = req.body.principal;
-    const interest = req.body.interest; 
-    const duration = req.body.duration;  
+    const principalAmount = req.body.principalAmount;
+    const interestRate = req.body.interestRate; 
+    const loanDuration = req.body.loanDuration;  
 
     i = interest/100;
     a = i/12 ;
@@ -21,9 +21,9 @@ exports.getMonthlyEmi = (req,res,next) =>{
 //Daily Compound Interest 
 
 exports.getDailyEmi = (req,res,next) =>{
-    const principal = req.body.principal;
-    const interest = req.body.interest; 
-    const duration = req.body.duration;  
+    const principalAmount = req.body.principalAmount;
+    const interestRate = req.body.interestRate; 
+    const loanDuration = req.body.loanDuration;   
 
     i = interest/100;
     a = i/365 ;
@@ -39,9 +39,9 @@ exports.getDailyEmi = (req,res,next) =>{
 //Continous Compound Interest 
 
 exports.getContinousEmi = (req,res,next) =>{
-    const principal = req.body.principal;
-    const interest = req.body.interest; 
-    const duration = req.body.duration;  
+     const principalAmount = req.body.principalAmount;
+    const interestRate = req.body.interestRate; 
+    const loanDuration = req.body.loanDuration;    
 
     i = interest/100;
     napier = 2.7183;
