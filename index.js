@@ -1,13 +1,19 @@
 const express = require('express');
+const http = require('http');
 const app = express();
 const emiRoute = require("./routes/Emi")
 const bodyParser = require('body-parser');
 
+const port = process.env.PORT || 8080;
+
+const server = http.createServer(app);
+
 app.use(bodyParser.json());
 app.use("/home",emiRoute);
 
-
-app.listen(https://emicalc-api.herokuapp.com ,() =>{
-    console.log("Connected to server");
-
+server.listen(port,() =>{
+    console.log("App is running on localhost:" +port);
 });
+
+
+
