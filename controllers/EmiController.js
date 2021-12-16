@@ -7,12 +7,12 @@ exports.getMonthlyEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration;  
 
-    i = interest/100;
+    i = interestRate/100;
     a = i/12 ;
-    d = duration*12 ; 
+    d = loanDuration*12 ; 
 
     res.status(200).json({
-        MonthlyEmi : (principal*(1+a)**d) - principal + " INR"
+        MonthlyEmi : (principalAmount*(1+a)**d) - principalAmount + " INR"
     });
     
 };
@@ -25,12 +25,12 @@ exports.getDailyEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration;   
 
-    i = interest/100;
+    i = interestRate/100;
     a = i/365 ;
-    d = duration*365 ; 
+    d = loanDuration*365 ; 
 
     res.status(200).json({
-        DailyEmi : (principal*(1+a)**d) - principal + " INR"
+        DailyEmi : (principalAmount*(1+a)**d) - principalAmount + " INR"
     });
     
 };
@@ -43,15 +43,15 @@ exports.getContinousEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration;    
 
-    i = interest/100;
+    i = interestRate/100;
     napier = 2.7183;
-    pow = i*duration;
+    pow = i*loanDuration;
     exp = napier**pow;
 
  
 
     res.status(200).json({
-        ContinousEmi : (principal*exp ) + " INR"
+        ContinousEmi : (principalAmount*exp ) + " INR"
     });
     
 };
