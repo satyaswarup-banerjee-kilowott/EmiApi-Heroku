@@ -51,7 +51,7 @@ exports.getContinousEmi = (req,res,next) =>{
 
     if(interestRate == 0 || loanDuration == 0 ){
         res.status(200).json({
-            ContinousEmi : 0
+            ContinousEmi : 0 +" INR"
         });
     }else{
     
