@@ -49,6 +49,12 @@ exports.getContinousEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration;    
 
+    if(interestRate == 0 || loanDuration == 0 ){
+        res.status(200).json({
+            ContinousEmi : 0
+        });
+    }else{
+    
     i = interestRate/100;
     napier = 2.7183;
     pow = i*loanDuration;
@@ -61,5 +67,9 @@ exports.getContinousEmi = (req,res,next) =>{
     res.status(200).json({
         ContinousEmi 
     });
+
+    }
+
+    
     
 };
