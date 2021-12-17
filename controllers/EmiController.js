@@ -7,12 +7,12 @@ exports.getMonthlyEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration;  
 
-    if( interestRate < 2 || interestRate >= 30 ){
+    if( interestRate < 2 || interestRate > 30 ){
         res.status(200).json({
             MonthlyEmi : 0 +" INR"
         });
     }
-    if( loanDuration < 1 || loanDuration >= 15 ){
+    if( loanDuration < 1 || loanDuration > 15 ){
         res.status(200).json({
            MonthlyEmi : 0 +" INR"
         });
@@ -46,12 +46,12 @@ exports.getDailyEmi = (req,res,next) =>{
     const interestRate = req.body.interestRate; 
     const loanDuration = req.body.loanDuration; 
     
-    if( interestRate < 2 || interestRate >= 30 ){
+    if( interestRate < 2 || interestRate > 30 ){
         res.status(200).json({
             DailyEmi : 0 +" INR"
         });
     }
-    if( loanDuration < 1 || loanDuration >= 15 ){
+    if( loanDuration < 1 || loanDuration > 15 ){
         res.status(200).json({
             DailyEmi : 0 +" INR"
         });
@@ -94,12 +94,12 @@ exports.getContinousEmi = (req,res,next) =>{
         });
     }
     
-    if( interestRate < 2 || interestRate >= 30 ){
+    if( interestRate < 2 || interestRate > 30 ){
         res.status(200).json({
             DailyEmi : 0 +" INR"
         });
     }
-    if( loanDuration < 1 || loanDuration >= 15 ){
+    if( loanDuration < 1 || loanDuration > 15 ){
         res.status(200).json({
             DailyEmi : 0 +" INR"
         });
