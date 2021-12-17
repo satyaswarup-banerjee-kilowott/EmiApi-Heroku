@@ -11,11 +11,11 @@ exports.getMonthlyEmi = (req,res,next) =>{
     a = i/12 ;
     d = loanDuration*12 ; 
 
-     ME  = (principalAmount*(1+a)**d)-principalAmount + " INR" ;
-     MonthlyEmi = Math.round(ME,2);
+     ME  = (principalAmount*(1+a)**d)-principalAmount  ;
+     MonthlyEmi = Math.round((ME + Number.EPSILON) * 100) / 100  + " INR";
 
     res.status(200).json( { 
-         MonthlyEmi
+         MonthlyEmi 
     });
     
 };
@@ -32,8 +32,8 @@ exports.getDailyEmi = (req,res,next) =>{
     a = i/365 ;
     d = loanDuration*365 ; 
 
-    DE = (principalAmount*(1+a)**d) - principalAmount + " INR" ;
-    DailyEmi = Math.round(DE,2);
+    DE = (principalAmount*(1+a)**d) - principalAmount  ;
+    DailyEmi =  Math.round((DE + Number.EPSILON) * 100) / 100  + " INR";
 
     res.status(200).json({
          DailyEmi
@@ -54,9 +54,8 @@ exports.getContinousEmi = (req,res,next) =>{
     pow = i*loanDuration;
     exp = napier**pow;
 
-    CE = (principalAmount*exp ) + " INR" ;
-    ContinousEmi = Math.round(CE,2);
-
+    CE = (principalAmount*exp )  ;
+    ContinousEmi =  Math.round((CE + Number.EPSILON) * 100) / 100  + " INR";
  
 
     res.status(200).json({
