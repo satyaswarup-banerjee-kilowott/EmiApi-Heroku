@@ -7,13 +7,13 @@ const cors = require('cors');
 
 const port = process.env.PORT || 8080;
 
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/home",emiRoute);
 
-server.listen(port,() =>{
+app.listen(port,() =>{
     console.log("App is running on localhost:" +port);
 });
 
